@@ -3,7 +3,14 @@ let data = {};
 function returnMovies() {
     let movie = document.getElementById("name").value
     console.log(movie)
-    fetch('https://api.themoviedb.org/3/search/movie?api_key=372c241947026db9c19f79f6b77e0640&query=' + movie.toString(), {
+    let url = ""
+    if (movie === "") {
+        url = "https://api.themoviedb.org/3/movie/popular?api_key=372c241947026db9c19f79f6b77e0640"
+    } else {
+        url = "https://api.themoviedb.org/3/search/movie?api_key=372c241947026db9c19f79f6b77e0640&query=" + movie.toString();
+    }
+
+    fetch(url, {
   method: 'GET', 
   headers: {
     'Content-Type': 'application/json',
@@ -50,7 +57,7 @@ function returnMovies() {
     const img = document.createElement("img");
     img.className = "img";
     // img.setAttribute("id", "img" + x.id);
-    img.setAttribute("src", 'https://image.tmdb.org/t/p/w500/' + x.poster_path);
+    if (x.poster_path) img.setAttribute("src", 'https://image.tmdb.org/t/p/w500/' + x.poster_path);
 
     document.getElementById('left1' + x.id).appendChild(img);
 

@@ -50,18 +50,17 @@ p{
 .block {
     width: 30.2%;
     float: left;
-    height: 750px;
+    min-height: 600px;
     margin: 1.5%;
     border: solid 1px white;
     border-radius: 15px;
 }
 
 img {
-    width: 300px;
+    width: 250px;
 }
-/* .left {
-    width: 50%;
+.left {
+    width: 46%;
     float: left;
-    height: 750px;
-    padding: 25px; 
-} */
+    margin: 2%;
+}
