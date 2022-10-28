@@ -50,7 +50,7 @@ function returnMovies() {
     const img = document.createElement("img");
     img.className = "img";
     // img.setAttribute("id", "img" + x.id);
-    img.setAttribute("path", x.poster_path);
+    img.setAttribute("src", 'https://image.tmdb.org/t/p/w500/' + x.poster_path);
 
     document.getElementById('left1' + x.id).appendChild(img);
 
