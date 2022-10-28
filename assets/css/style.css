@@ -1,0 +1,64 @@
+@import url("reset.css");
+
+body {
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    font-size: 70px;
+}
+
+h3 {
+    font-size: 30px;
+    color: white;
+}
+
+p{
+    font-size: 15px;
+    color: white;
+}
+
+.top {
+    border: solid 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 250px;
+    height: 30px;
+    padding: 5px;
+}
+
+.bottom {
+    border: solid 1px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 250px;
+    height: 30px;
+    padding: 5px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container {
+    padding-top: 150px;
+}
+
+.block {
+    width: 30.2%;
+    float: left;
+    height: 750px;
+    margin: 1.5%;
+    border: solid 1px white;
+    border-radius: 15px;
+}
+
+/* .left {
+    width: 50%;
+    float: left;
+    height: 750px;
+    padding: 25px; 
+} */
