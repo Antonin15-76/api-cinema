@@ -16,10 +16,16 @@
                 <input class="top" type="search" id="name" name="name" placeholder="Entrer le nom d'un film">
             </div>
             <div class="center">
-                <input class="bottom" type="submit" name="submit" onclick="returnMovies()" value="Rechercher">
+                <input class="bottom" type="submit" name="submit" onclick="returnMovies(undefined, true)" value="Rechercher">
             </div>
       </nav>
       <div id="content">
+        <!-- <div class="center">
+          <Select id="page-select" onchange="selectClick()">
+
+          </Select>
+        </div> -->
+        
       </div>
     </main>
     <script src="assets/js/main.js"></script>
