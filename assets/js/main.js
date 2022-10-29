@@ -1,10 +1,6 @@
-let data = {};
-
 let movie = document.getElementById("name").value;
 let url = ""
     if (movie === "") {
-
-      let page = 1
 
         url = "https://api.themoviedb.org/3/movie/popular?api_key=372c241947026db9c19f79f6b77e0640&page=1"
        returnMovies(url) 
@@ -27,7 +23,6 @@ function returnMovies(urlValue, bool = false, page) {
 })
   .then((response) => response.json())
   .then((data) => {
-    console.log('Success:', data);
     
     const elementRemove = document.getElementById('container');
     if (elementRemove) elementRemove.remove();
@@ -38,7 +33,6 @@ function returnMovies(urlValue, bool = false, page) {
     
     document.getElementById("content").appendChild(content);
 
-    console.log(data)
     let str = '';
 
     const elementOptionRemove = document.getElementById('select');
@@ -95,7 +89,6 @@ function returnMovies(urlValue, bool = false, page) {
 
       const img = document.createElement("img");
       img.className = "img";
-      // img.setAttribute("id", "img" + x.id);
       if (x.poster_path) img.setAttribute("src", 'https://image.tmdb.org/t/p/w500/' + x.poster_path);
 
       document.getElementById('left1' + x.id).appendChild(img);
@@ -121,18 +114,11 @@ function returnMovies(urlValue, bool = false, page) {
 let page = 1
 
 function selectClick(page = 1) {
-  // console.log(page)
   let movie = ""
   const selectValue = document.getElementById("selectId").value
-  console.log(selectValue)
   if (movie === "") {
     returnMovies(undefined, true, selectValue)
   } else {
     returnMovies(undefined, false, selectValue)
   }
-    console.log(selectValue)
-    console.log(page)
-  //  return selectClick(page = selectValue) 
-  console.log(page)
-  console.log("ici")
 }
