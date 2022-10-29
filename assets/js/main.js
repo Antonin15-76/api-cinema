@@ -122,3 +122,11 @@ function selectClick(page = 1) {
     returnMovies(undefined, false, selectValue)
   }
 }
+
+const searchInput = document.getElementById("name")
+searchInput.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault()
+    returnMovies(undefined, true)
+  }
+})
