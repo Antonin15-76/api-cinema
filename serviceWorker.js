@@ -2,6 +2,7 @@ const staticCacheName = "cache-v1";
 const assets = ["/", "./index.html"];
 
 self.addEventListener("install", (e) => {
+    console.log(e)
   e.waitUntil(
     caches.open(staticCacheName).then((cache) => {
       cache.addAll(assets);
@@ -10,6 +11,7 @@ self.addEventListener("install", (e) => {
 });
 
 self.addEventListener("fetch", (event) => {
+    console.log(event)
   event.respondWith(
     caches.match(event.request).then(function (response) {
       if (response) {
