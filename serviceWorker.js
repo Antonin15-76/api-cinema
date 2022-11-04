@@ -1,23 +1,48 @@
-const staticDevWhatWatch = "dev-what-watch-site-v1"
-const assets = [
-"/",
-"/index.html",
-"/assets/css/style.css",
-"/assets/js/main.js"
-]
+const staticCacheName = "cache-v1";
+const assets = ["/", "./index.html"];
 
-self.addEventListener("install", installEvent => {
-    installEvent.waitUntil(
-        caches.open(staticDevWhatWatch).then(cache => {
-            cache.addAll(assets)
-        })
-    )
-})
+self.addEventListener("install", (e) => {
+  e.waitUntil(
+    caches.open(staticCacheName).then((cache) => {
+      cache.addAll(assets);
+    })
+  );
+});
 
-self.addEventListener("fetch", fetchEvent => {
-    fetchEvent.respondWith(
-        caches.match(fetchEvent.request).then(res => {
-            return res || fetch(fetchEvent.request)
-        })
-    )
-})
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then(function (response) {
+      if (response) {
+        return response;
+      }
+
+      var fetchRequest = event.request.clone();
+
+      return fetch(fetchRequest).then(function (response) {
+        if (!response || response.status !== 200 || response.type !== "basic") {
+          return response;
+        }
+
+        var responseToCache = response.clone();
+
+        caches.open(staticCacheName).then(function (cache) {
+          cache.put(event.request, responseToCache);
+        });
+
+        return response;
+      });
+    })
+  );
+});
+
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.add(
+        keys
+          .filter((key) => key !== staticCacheName)
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
+});
