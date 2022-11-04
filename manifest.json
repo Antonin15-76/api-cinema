@@ -1,6 +1,7 @@
 {
     "name": "what whatch",
-    "start_url": "index.html",
+    "short_name": "WW",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#fdfdfd",
     "theme_color": "#db4938",
