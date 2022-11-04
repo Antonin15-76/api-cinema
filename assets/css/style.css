@@ -232,6 +232,11 @@ img {
     img {
         max-width: 150px;
     }
+
+    h1 {
+        color: white;
+        font-size: 65px;
+    }
 }
 
 @media screen and (max-width: 405px) {
